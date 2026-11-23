@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+    {% for product in products %}
+        <h4>{{ product.name }}</h4>
+        <P>Ksh {{ product.price }}</P>
+        <p>{{ product.category }}</p>
+        <a href="{% url 'edit' product.id %}" class="btn btn-info"><i class="bi bi-pencil-fill"></i></a>
+        <a href="{% url 'delete' product.id %}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+        <a href="{% url 'details' product.id %}" class="btn btn-dark">Details</a>
+        <hr>
+    {% endfor %}
+    </div>
+{% endblock %}
